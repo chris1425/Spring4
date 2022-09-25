@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.proyecto3.Modelo.Transaccion;
-import com.example.proyecto3.Repositorios.TransaccionRepositorio;
+import com.example.proyecto3.Repositorios.MovimientosRepositorio;
 
 @RestController
 @RequestMapping("/Transaccion")
 public class MovimientosControlador {
 
     @Autowired
-    private TransaccionRepositorio repositorioTransaccion;
+    private MovimientosRepositorio repositorioTransaccion;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Transaccion> listar() {

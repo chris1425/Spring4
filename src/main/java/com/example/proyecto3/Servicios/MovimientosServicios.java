@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.proyecto3.Modelo.Transaccion;
-import com.example.proyecto3.Repositorios.TransaccionRepositorio;
+import com.example.proyecto3.Repositorios.MovimientosRepositorio;
 
 @Service
 public class MovimientosServicios {
     
     @Autowired
-    private TransaccionRepositorio transRepositorio;
+    private MovimientosRepositorio transRepositorio;
 
 	public Transaccion create(Transaccion transaccion){
 		return transRepositorio.save(transaccion);
