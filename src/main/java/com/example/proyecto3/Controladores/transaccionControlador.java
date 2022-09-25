@@ -18,39 +18,35 @@ import com.example.proyecto3.Servicios.TransaccionServicios;
 
 @RestController
 @RequestMapping("/transacciones")
-public class TransaccionControlador{
-    
+public class TransaccionControlador {
+
     @Autowired
-	private TransaccionServicios transServicios;
+    private TransaccionServicios servicios;
 
-	@PostMapping
-	private Transaccion guardar(@RequestBody Transaccion transaccion){
-		return this.transServicios.create(transaccion);
+    public TransaccionControlador(TransaccionServicios servicios){
+        this.servicios = servicios;
 
-	}
+    }
+    @PostMapping
+    private Transaccion guardar(@RequestBody Transaccion transaccion){
+        return this.servicios.create(transaccion);
+    }
 
-	@GetMapping("/Listas_transacciones")
-	public List<Transaccion> listarTodosLasTransacciones (){
-		return this.transServicios.getAllTransacciones();
-	}
+    @GetMapping("/listas_transacciones")
+    public List<Transaccion> listas_transacciones(){
+        return this.servicios.getAllTransacciones();
+    }
+    @PutMapping
+    public Transaccion actualizar(@RequestBody Transaccion transaccion){
+        return this.servicios.update(transaccion);
+    }
+    @DeleteMapping
+    public void eliminar(@RequestBody Transaccion transaccion){
+        this.servicios.delete(transaccion);
+    }
 
-	@PutMapping
-	private Transaccion actualizar(@RequestBody Transaccion transaccion){
-		return this.transServicios.update(transaccion);
-
-	}
-
-	@DeleteMapping
-	public void eliminarTransaccion(@RequestBody Transaccion transaccion) {
-		transServicios.delete(transaccion);
-		
-	}
-
-	@GetMapping(value = "/{id}")
-	public Optional<Transaccion> listaPorId (@PathVariable ("id") Long id){
-		return this.transServicios.porId(id);
-	}
-
-		
-
+    @GetMapping(value = "/{id}")
+    public Optional<Transaccion>listaPorId(@PathVariable ("id") Long id){
+        return this.servicios.porId(id);
+    }
 }
