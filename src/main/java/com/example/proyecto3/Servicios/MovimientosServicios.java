@@ -10,7 +10,7 @@ import com.example.proyecto3.Modelo.Transaccion;
 import com.example.proyecto3.Repositorios.TransaccionRepositorio;
 
 @Service
-public class TransaccionServicios {
+public class MovimientosServicios {
     
     @Autowired
     private TransaccionRepositorio transRepositorio;

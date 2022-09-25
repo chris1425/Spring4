@@ -13,7 +13,7 @@ import com.example.proyecto3.Repositorios.TransaccionRepositorio;
 
 @RestController
 @RequestMapping("/Transaccion")
-public class TransaccionControlador {
+public class MovimientosControlador {
 
     @Autowired
     private TransaccionRepositorio repositorioTransaccion;
