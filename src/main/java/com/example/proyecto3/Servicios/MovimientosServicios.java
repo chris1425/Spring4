@@ -6,33 +6,39 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.proyecto3.Modelo.Transaccion;
+import com.example.proyecto3.Modelo.Movimientos;
 import com.example.proyecto3.Repositorios.MovimientosRepositorio;
 
 @Service
 public class MovimientosServicios {
     
     @Autowired
-    private MovimientosRepositorio transRepositorio;
+    private MovimientosRepositorio repositorio;
 
-	public Transaccion create(Transaccion transaccion){
-		return transRepositorio.save(transaccion);
+	public MovimientosServicios(MovimientosRepositorio repositorio){
+		this.repositorio = repositorio;
 	}
 
-	public Transaccion update(Transaccion transaccion){
-		return transRepositorio.save(transaccion);
+	public Movimientos create(Movimientos transaccion){
+		return repositorio.save(transaccion);
 	}
 
-	public List<Transaccion> getAllTransacciones (){
-		return transRepositorio.findAll();
+	public Movimientos update(Movimientos transaccion){
+		return repositorio.save(transaccion);
 	}
 
-	public void delete(Transaccion transaccion){
-		transRepositorio.delete(transaccion);
+	
+	public void delete(Movimientos transaccion){
+		repositorio.delete(transaccion);
 	}
 
-	public Optional<Transaccion> porId(Long id){
-		return transRepositorio.findById(id);
+	public Optional<Movimientos> porId(Long id){
+		return repositorio.findById(id);
 
 	}
+	public List<Movimientos> listarMovimientos(){
+		return repositorio.findAll();
+	}
+
+	
 }

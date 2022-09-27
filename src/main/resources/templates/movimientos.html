@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://w3.org/1999/xthml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://w3.org/1999/xthml"
+    xmlns:sec="http://w3.org/1999/xthml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyecto Error 404</title>
+    <link rel="icon" href="/src/main/resources/static/Image/error-4041.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <main>
+        <div class="px-3  my-5 text-center">
+            <div class="d-flex justify-content-lg-end mb-3 px-3">
+                <a class="button-85 btn-sm" type="button" href="/">Pagina Principal</a>
+            </div>
+            <div class="px-3 text-center">
+                <div class="px-4  my-5 text-center">
+                    <h1 class="display-7 fw-bold mb-4">Movimientos</h1>
+                    <table class="table table-striped table-dark table-bordered table-responsive item"
+                        data-toggle="table" data-search="true" data-show-columns="true" data-url="json/data1.json">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Empresa</th>
+                                <th scope="col">Concepto</th>
+                                <th scope="col">Monto</th>
+                                <th scope="col">Creación del movimiento</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="movimiento : ${listarMov}" >
+                                <td scope="row" th:text="${movimiento.id}">Id</td>
+                                <td scope="row" th:text="${movimiento.empresa}">Empresa</td>
+                                <td scope="row" th:text="${movimiento.concept}">Concepto</td>
+                                <td scope="row" th:text="${movimiento.amount}">Monto</td>
+                                <td scope="row" th:text="${movimiento.createAt}">Fecha de creación</td>
+
+                                <td>
+                                    <div>
+                                        <a th:href="@{/movimiento/{id}(id=${movimiento.id})}" class="btn btn-danger"
+                                            type="button">Eliminar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <a class="button-85" type="button" href="/movimiento/agregar">Agregar Movimiento</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

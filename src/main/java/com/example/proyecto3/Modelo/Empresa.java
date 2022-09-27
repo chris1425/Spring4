@@ -1,6 +1,8 @@
 package com.example.proyecto3.Modelo;
 
 import java.sql.Date;
+import java.time.LocalDate;
+
 
 import javax.persistence.*;
 
@@ -31,13 +33,13 @@ public class Empresa {
     private Date createdAt;
 
     @Column(name = "updatedAt", nullable = true)
-    private Date updateAt;
+    private LocalDate updateAt;
 
     public Empresa() {
 
     }
 
-    public Empresa(Long id, String name, String document, String phone, String address, Date createdAt, Date updateAt) {
+    public Empresa(Long id, String name, String document, String phone, String address, Date createdAt, LocalDate updateAt) {
         this.id = id;
         this.name = name;
         this.document = document;
@@ -46,7 +48,7 @@ public class Empresa {
         this.createdAt = createdAt;
         this.updateAt = updateAt;
     }
-    public Empresa(String name, String document, String phone, String address, Date createdAt, Date updateAt) {
+    public Empresa(String name, String document, String phone, String address, Date createdAt, LocalDate updateAt) {
         this.name = name;
         this.document = document;
         this.phone = phone;
@@ -102,12 +104,13 @@ public class Empresa {
         this.createdAt = createAt;
     }
 
-    public Date getUpdateAt() {
+    public LocalDate getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdateAt(LocalDate localDate){
+        this.updateAt = localDate;
     }
 
+   
 }

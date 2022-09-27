@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Proyecto Error 404</title>
+    <link rel="icon" href="/src/main/resources/static/Image/error-4041.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet" />
@@ -17,7 +18,7 @@
             <img src="Image/error-404.png" class="d-block mx-auto mb-4" height="150px" alt="Proyecto" />
             <div class="col-lg-6 mx-auto">
                 <h1 class="display-5 fw-bold">Proyecto Error 404</h1>
-                <p class="lead mb-4">Acá se coloca una descripción del proyecto</p>
+                <p class="lead mb-4">Aplicación formato CRUD</p>
                 <div sec:authorize="!isAuthenticated()">
                     <a th:href="@{/oauth2/authorization/auth0}" class="button-85">Ingreso</a>
                 </div>
@@ -25,7 +26,7 @@
                 <div sec:authorize="isAuthenticated()">
                     <h1 th:text="'Bienvenido, ' + ${usuario.getName()}"></h1>
                     <br />
-                    <a href= "/entidad" class="button-85" type="button">Ver Empresas</a>
+                    <a href="/entidad" class="button-85" type="button">Ver Empresas</a>
                 </div>
             </div>
         </div>

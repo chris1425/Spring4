@@ -15,39 +15,32 @@
 <body>
     <main>
         <div class="px-5 py-5 my-5 text-center">
-            <h2 class="display-6 fw-bold mb-4">Agregar Empresa</h2>
+            <h2 class="display-6 fw-bold mb-4">Agregar Transacción</h2>
             <div class="d-flex gap-4 justify-content-center">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-header">Ingrese los datos</h5>
-                        <form th:action="@{/entidad}" th:object="${nuevaEmpresa}" method="POST">
+                        <form th:action="@{/movimientos}" th:object="${movimiento}" method="POST">
                             <div class="form-group">
                                 <label>
-                                    Nombre:
+                                    Concepto:
                                 </label>
-                                <input type="text" name="name" th:field="*{name}" class="form-control"
-                                    placeholder="Digite el nombre" required>
+                                <input type="text" name="concept" th:field="*{concept}" class="form-control"
+                                    placeholder="Digite el concepto" required>
                             </div>
                             <div class="form-group">
                                 <label>
-                                    Documento:
+                                    Monto:
                                 </label>
-                                <input type="text" name="document" th:field="*{document}" class="form-control"
-                                    placeholder="Digite el documento" required>
+                                <input type="text" name="amount" th:field="*{amount}" class="form-control"
+                                    placeholder="Digite el monto" required>
                             </div>
                             <div class="form-group">
                                 <label>
-                                    Telefono:
+                                    ID Empresa
                                 </label>
-                                <input type="text" name="phone" th:field="*{phone}" class="form-control"
-                                    placeholder="Digite el telefono" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label>
-                                    Direccion:
-                                </label>
-                                <input type="text" name="address" th:field="*{address}" class="form-control"
-                                    placeholder="Digite la direccion" required>
+                                <input type="text" name="name" th:field="*{empresa.id}" class="form-control"
+                                    placeholder="Digite el ID" required>
                             </div>
                             <div class="form-group mb-4">
                                 <label>
@@ -55,13 +48,9 @@
                                 </label>
                                 <input type="date" name="createAt" th:field="*{createAt}" class="form-control" required>
                             </div>
-
                             <div class="box-footer">
                                 <button class="btn btn-primary">Guardar</button>
-
-
                             </div>
-
                         </form>
                     </div>
                 </div>

@@ -8,35 +8,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.proyecto3.Modelo.Transaccion;
+import com.example.proyecto3.Modelo.Movimientos;
 import com.example.proyecto3.Repositorios.MovimientosRepositorio;
 
 @RestController
-@RequestMapping("/Transaccion")
+@RequestMapping("/movimientos")
 public class MovimientosControlador {
 
     @Autowired
     private MovimientosRepositorio repositorioTransaccion;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<Transaccion> listar() {
+    public List<Movimientos> listar() {
         return repositorioTransaccion.findAll();
 
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    public Transaccion obtenerId(@PathVariable Long id) {
+    public Movimientos obtenerId(@PathVariable Long id) {
         return repositorioTransaccion.findById(id).get();
 
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public Transaccion agregaTransaccion(@RequestBody Transaccion Transaccion) {
+    public Movimientos agregaTransaccion(@RequestBody Movimientos Transaccion) {
         return repositorioTransaccion.save(Transaccion);
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.PATCH)
-    public Transaccion patch(@RequestBody Transaccion Transaccion, @PathVariable Long id) {
+    public Movimientos patch(@RequestBody Movimientos Transaccion, @PathVariable Long id) {
         return repositorioTransaccion.save(Transaccion);
     }
 
