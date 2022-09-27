@@ -35,9 +35,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="movimiento : ${listarMov}" >
+                            <tr th:each="movimiento : ${listarMov}">
                                 <td scope="row" th:text="${movimiento.id}">Id</td>
-                                <td scope="row" th:text="${movimiento.empresa}">Empresa</td>
+                                <td scope="row" th:text="${movimiento.empresa.getName()}">Empresa</td>
                                 <td scope="row" th:text="${movimiento.concept}">Concepto</td>
                                 <td scope="row" th:text="${movimiento.amount}">Monto</td>
                                 <td scope="row" th:text="${movimiento.createAt}">Fecha de creación</td>
@@ -47,13 +47,23 @@
                                         <a th:href="@{/movimiento/{id}(id=${movimiento.id})}" class="btn btn-danger"
                                             type="button">Eliminar</a>
                                     </div>
+
                                 </td>
+
                             </tr>
                         </tbody>
                     </table>
                     <div>
-                        <a class="button-85" type="button" href="/movimiento/agregar">Agregar Movimiento</a>
+                        <h3 class="text-end" th:text="'Total de movimientos ' + ${cantidadMovimientos}"></h3>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="d-flex">
+                <div class="m-lg-auto">
+                    <a class="button-85 mb-4" type="button" href="/movimiento/agregar">Agregar
+                        Movimiento</a>
                 </div>
             </div>
         </div>

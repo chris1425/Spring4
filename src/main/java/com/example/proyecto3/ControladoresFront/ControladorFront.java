@@ -124,7 +124,9 @@ public class ControladorFront {
     @GetMapping("/movimientos")
     public String listar(Model model) {
         model.addAttribute("listarMov", this.servicios.listaMovimientos());
+        model.addAttribute("cantidadMovimientos", this.servicios.listaMovimientos().size());
         System.out.println("hola" + servicios.listaMovimientos());
+        
         return "movimientos";
     }
 
